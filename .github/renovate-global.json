@@ -1,0 +1,9 @@
+{
+  "autodiscover": true,
+  "onboarding": true,
+  "onboardingConfig": {
+   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["github>studiometa/renovate"]
+  },
+  "requireConfig": "required"
+}

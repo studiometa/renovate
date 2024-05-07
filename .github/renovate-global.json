@@ -7,5 +7,6 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": ["github>studiometa/renovate"]
   },
+  "onboardingConfigFileName": ".github/renovate.json",
   "requireConfig": "required"
 }

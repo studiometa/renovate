@@ -22,6 +22,15 @@
       "matchManagers": ["composer"],
       "matchPackageNames": ["php"],
       "enabled": false
+    },
+    {
+      "matchManagers": ["nvm"],
+      "minor": {
+        "enabled": false
+      },
+      "patch": {
+        "enabled": false
+      }
     }
   ]
 }

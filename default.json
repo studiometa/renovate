@@ -17,6 +17,7 @@
   "lockFileMaintenance": {
     "enabled": true
   },
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
       "matchManagers": ["composer"],

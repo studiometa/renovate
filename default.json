@@ -9,14 +9,19 @@
     ":automergePatch",
     ":automergePr",
     ":automergeRequireAllStatusChecks",
-    ":combinePatchMinorReleases"
+    ":combinePatchMinorReleases",
+    ":maintainLockFilesWeekly",
+    ":pinOnlyDevDependencies",
+    ":widenPeerDependencies",
+    ":dependencyDashboard",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all"
   ],
   "osvVulnerabilityAlerts": true,
   "labels": ["renovate"],
   "dependencyDashboardLabels": ["renovate"],
-  "lockFileMaintenance": {
-    "enabled": true
-  },
   "minimumReleaseAge": "3 days",
   "packageRules": [
     {

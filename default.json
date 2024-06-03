@@ -17,7 +17,8 @@
     "group:monorepos",
     "group:recommended",
     "replacements:all",
-    "workarounds:all"
+    "workarounds:all",
+    "schedule:weekly"
   ],
   "osvVulnerabilityAlerts": true,
   "labels": ["renovate"],

@@ -16,7 +16,7 @@
     "group:monorepos",
     "group:recommended",
     "replacements:all",
-    "workarounds:all",
+    "workarounds:all"
   ],
   "osvVulnerabilityAlerts": true,
   "labels": ["renovate"],
@@ -39,8 +39,8 @@
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "groupName": "devDependencies",
-      "groupSlug": "dev-dependencies"
+      "groupName": "{{parentDir}} devDependencies",
+      "groupSlug": "{{parentDir}}-dev-dependencies"
     }
   ]
 }

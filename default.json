@@ -36,6 +36,11 @@
       "patch": {
         "enabled": false
       }
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "devDependencies",
+      "groupSlug": "dev-dependencies"
     }
   ]
 }

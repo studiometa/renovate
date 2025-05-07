@@ -4,7 +4,6 @@
   "platform": "github",
   "extends": [
     "config:base",
-    "schedule:nonOfficeHours",
     ":approveMajorUpdates",
     ":automergePatch",
     ":automergePr",
@@ -18,7 +17,6 @@
     "group:recommended",
     "replacements:all",
     "workarounds:all",
-    "schedule:weekly"
   ],
   "osvVulnerabilityAlerts": true,
   "labels": ["renovate"],

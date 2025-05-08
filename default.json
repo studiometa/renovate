@@ -9,7 +9,6 @@
     ":automergePr",
     ":automergeRequireAllStatusChecks",
     ":combinePatchMinorReleases",
-    ":maintainLockFilesWeekly",
     ":pinOnlyDevDependencies",
     ":widenPeerDependencies",
     ":dependencyDashboard",

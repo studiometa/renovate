@@ -39,7 +39,10 @@
     {
       "matchDepTypes": ["devDependencies"],
       "groupName": "{{parentDir}} devDependencies",
-      "groupSlug": "{{parentDir}}-dev-dependencies"
+      "groupSlug": "{{parentDir}}-dev-dependencies",
+      "major": {
+        "enabled": false
+      }
     }
   ]
 }

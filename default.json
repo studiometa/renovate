@@ -12,6 +12,7 @@
     ":pinOnlyDevDependencies",
     ":widenPeerDependencies",
     ":dependencyDashboard",
+    "schedule:automergeWeekly",
     "group:monorepos",
     "group:recommended",
     "replacements:all",

@@ -1,49 +1,77 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
-  "platform": "github",
+  "description": "Shared Renovate preset of Studio Meta and ikko repositories",
   "extends": [
-    "config:base",
+    "config:recommended",
     ":approveMajorUpdates",
-    ":automergePatch",
-    ":automergePr",
-    ":automergeRequireAllStatusChecks",
-    ":combinePatchMinorReleases",
     ":pinOnlyDevDependencies",
     ":widenPeerDependencies",
-    ":dependencyDashboard",
+    ":automergePatch",
+    ":combinePatchMinorReleases",
+    ":automergePr",
+    ":automergeRequireAllStatusChecks",
     "schedule:automergeWeekly",
-    "group:monorepos",
-    "group:recommended",
-    "replacements:all",
-    "workarounds:all"
+    "helpers:pinGitHubActionDigestsToSemver"
   ],
-  "osvVulnerabilityAlerts": true,
-  "labels": ["renovate"],
+  "timezone": "Europe/Paris",
+  "labels": ["renovate", "no-changelog"],
   "dependencyDashboardLabels": ["renovate"],
   "minimumReleaseAge": "3 days",
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "addLabels": ["security"],
+    "minimumReleaseAge": null
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 6am on monday"]
+  },
   "packageRules": [
     {
+      "description": "Runtime dependencies ship to users: no `no-changelog` label, so weareikko/changelog lists them under Dependencies at release",
+      "matchDepTypes": ["dependencies", "peerDependencies", "optionalDependencies", "require"],
+      "labels": ["renovate"]
+    },
+    {
+      "description": "Libraries keep their published npm ranges: update the lock file only",
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["dependencies"],
+      "rangeStrategy": "update-lockfile"
+    },
+    {
+      "description": "Libraries keep their published composer ranges: widen them for new majors",
+      "matchManagers": ["composer"],
+      "matchDepTypes": ["require"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "description": "A higher engines minimum is a breaking change for consumers",
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    {
+      "description": "The PHP constraint is a decision of the project, not an update",
       "matchManagers": ["composer"],
       "matchPackageNames": ["php"],
       "enabled": false
     },
     {
+      "description": "Update the Node.js version of .nvmrc on majors only",
       "matchManagers": ["nvm"],
-      "minor": {
-        "enabled": false
-      },
-      "patch": {
-        "enabled": false
-      }
+      "matchUpdateTypes": ["minor", "patch"],
+      "enabled": false
     },
     {
-      "matchDepTypes": ["devDependencies"],
-      "groupName": "{{parentDir}} devDependencies",
-      "groupSlug": "{{parentDir}}-dev-dependencies",
-      "major": {
-        "enabled": false
-      }
+      "description": "Group development dependencies by package directory",
+      "matchDepTypes": ["devDependencies", "require-dev"],
+      "groupName": "{{#if parentDir}}{{parentDir}} {{/if}}devDependencies",
+      "groupSlug": "{{#if parentDir}}{{parentDir}}-{{/if}}dev-dependencies"
+    },
+    {
+      "description": "Group and automerge GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "automerge": true
     }
   ]
 }
